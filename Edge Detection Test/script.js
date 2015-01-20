@@ -9,146 +9,76 @@ function edge() {
 	console.log("----------------------");
 	for(i = 0; i < size; i++) {
 		for(j = 0; j < size; j++) {
-			if(array[i][j] == " ") {
+			if(array[i][j] == "$") {
 				if(i == 0) {
 					if(j == 0) {
-						if(array[i][j+1] == "$") { //4
-							array[i][j+1] = "*";
+						/*var string = "";
+						string += array[i,j+1]; //4
+						string += array[i+1,j+1]; //5
+						string += array[i+1,j]; //6
+
+						var count = 0;
+						for(k = 0; k < string.length; k++) {
+							if(string.substring(k,k+1) == " ") {
+								count ++;
+							}
 						}
-						if(array[i+1][j+1] == "$") { //5
-							array[i+1][j+1] = "*";
-						}
-						if(array[i+1][j] == "$") { //6
-							array[i+1][j] = "*";
-						}
+
+						if(count > 2) {
+							array[i][j] = "*";
+						}*/
 					} else if(j == size - 1) {
-						if(array[i+1][j] == "$") { //6
-							array[i+1][j] = "*";
-						}
-						if(array[i+1][j-1] == "$") { //7
-							array[i+1][j-1] = "*";
-						}
-						if(array[i][j-1] == "$") { //8
-							array[i][j-1] = "*";
-						}
+						
 					} else {
-						if(array[i][j+1] == "$") { //4
-							array[i][j+1] = "*";
-						}
-						if(array[i+1][j+1] == "$") { //5
-							array[i+1][j+1] = "*";
-						}
-						if(array[i+1][j] == "$") { //6
-							array[i+1][j] = "*";
-						}
-						if(array[i+1][j-1] == "$") { //7
-							array[i+1][j-1] = "*";
-						}
-						if(array[i][j-1] == "$") { //8
-							array[i][j-1] = "*";
-						}
+						
 					}
 
 				} else if(i == size - 1) {
 					if(j == 0) {
-						if(array[i-1][j] == "$") { //2
-							array[i-1][j] = "*";
-						}
-						if(array[i-1][j+1] == "$") { //3
-							array[i-1][j+1] = "*";
-						}
-						if(array[i][j+1] == "$") { //4
-							array[i][j+1] = "*";
-						}
+						
 					} else if(j == size - 1) {
-						if(array[i-1][j-1] == "$") { //1
-							array[i-1][j-1] = "*";
-						}
-						if(array[i-1][j] == "$") { //2
-							array[i-1][j] = "*";
-						}
-						if(array[i][j-1] == "$") { //8
-							array[i][j-1] = "*";
-						}
+						
 					} else {
-						if(array[i-1][j-1] == "$") { //1
-							array[i-1][j-1] = "*";
-						}
-						if(array[i-1][j] == "$") { //2
-							array[i-1][j] = "*";
-						}
-						if(array[i-1][j+1] == "$") { //3
-							array[i-1][j+1] = "*";
-						}
-						if(array[i][j+1] == "$") { //4
-							array[i][j+1] = "*";
-						}
-						if(array[i][j-1] == "$") { //8
-							array[i][j-1] = "*";
-						}
+						
 					}
 				} else if(j == 0) {
-					if(array[i-1][j] == "$") { //2
-						array[i-1][j] = "*";
-					}
-					if(array[i-1][j+1] == "$") { //3
-						array[i-1][j+1] = "*";
-					}
-					if(array[i][j+1] == "$") { //4
-						array[i][j+1] = "*";
-					}
-					if(array[i+1][j+1] == "$") { //5
-						array[i+1][j+1] = "*";
-					}
-					if(array[i+1][j] == "$") { //6
-						array[i+1][j] = "*";
-					}
+					
 				} else if(j == size - 1) {
-					if(array[i-1][j-1] == "$") { //1
-						array[i-1][j-1] = "*";
-					}
-					if(array[i-1][j] == "$") { //2
-						array[i-1][j] = "*";
-					}
-					if(array[i+1][j] == "$") { //6
-						array[i+1][j] = "*";
-					}
-					if(array[i+1][j-1] == "$") { //7
-						array[i+1][j-1] = "*";
-					}
-					if(array[i][j-1] == "$") { //8
-						array[i][j-1] = "*";
-					}
+					
 				} else {
-					if(array[i-1][j-1] == "$") { //1
-						array[i-1][j-1] = "*";
+					var string = "";
+					string += array[i-1][j-1]; //1
+					string += array[i-1][j]; //2
+					string += array[i-1][j+1]; //3
+					string += array[i][j+1]; //4
+					string += array[i+1][j+1]; //5
+					string += array[i+1][j]; //6
+					string += array[i+1][j-1]; //7
+					string += array[i][j-1]; //8
+
+					var spaces = 0;
+					for(k = 0; k < string.length; k++) {
+						if(string.substring(k, k+1) == " ") {
+							spaces ++;
+						}
 					}
-					if(array[i-1][j] == "$") { //2
-						array[i-1][j] = "*";
-					}
-					if(array[i-1][j+1] == "$") { //3
-						array[i-1][j+1] = "*";
-					}
-					if(array[i][j+1] == "$") { //4
-						array[i][j+1] = "*";
-					}
-					if(array[i+1][j+1] == "$") { //5
-						array[i+1][j+1] = "*";
-					}
-					if(array[i+1][j] == "$") { //6
-						array[i+1][j] = "*";
-					}
-					if(array[i+1][j-1] == "$") { //7
-						array[i+1][j-1] = "*";
-					}
-					if(array[i][j-1] == "$") { //8
-						array[i][j-1] = "*";
+					string += string;
+					string.replace(/$/g, "*");
+					
+					if(spaces >= 2 || string.indexOf("* *") % 2 == 0) {
+						if(spaces == 2) {
+							if(string.indexOf(" * ") % 2 != 0) {
+								array[i][j] = "*";
+							}
+						} else {
+							array[i][j] = "*";
+						}
 					}
 				}
 			}
 		}
 	}
-
+	printArray(array);
 	for(i = 0; i < size; i++) {
 		for(j = 0; j < size; j++) {
 			if(array[i][j] == "$") {
@@ -156,7 +86,6 @@ function edge() {
 			}
 		}
 	}
-	printArray(array);
 }
 
 function createArray(size) {
