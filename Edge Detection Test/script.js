@@ -64,11 +64,11 @@ function edge() {
 							string = stringReplaceAt(string,k, "*");
 						}
 					}
+					string += string;
 					
-					if(spaces >= 2 || (string.indexOf("* *") % 2 == 1 && string.indexOf("* *") != -1)) {
+					if(spaces >= 2 || (string.indexOf("* *") % 2 == 0 && string.indexOf("* *") != -1)) {
 						array[i][j] = "*";
 					}
-					console.log("String " + i + "," + j + ":" + string);
 				}
 			}
 		}
