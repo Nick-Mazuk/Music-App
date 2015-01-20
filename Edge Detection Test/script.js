@@ -289,6 +289,6 @@ function fillArray(array) {
 	return array;
 }
 
-stringTeplaceAt=function(string,index, character) {
+function stringTeplaceAt(string,index, character) {
     return string.substr(0, index) + character + string.substr(index+character.length);
 }
