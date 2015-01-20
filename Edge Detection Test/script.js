@@ -61,7 +61,7 @@ function edge() {
 						if(string.substring(k, k+1) == " ") {
 							spaces ++;
 						} else {
-							string.replaceAt(k, "*");
+							string = stringReplaceAt(string,k, "*");
 						}
 					}
 					
@@ -289,6 +289,6 @@ function fillArray(array) {
 	return array;
 }
 
-String.prototype.replaceAt=function(index, character) {
-    return this.substr(0, index) + character + this.substr(index+character.length);
+stringTeplaceAt=function(string,index, character) {
+    return string.substr(0, index) + character + string.substr(index+character.length);
 }
