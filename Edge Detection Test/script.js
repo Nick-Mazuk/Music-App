@@ -60,20 +60,15 @@ function edge() {
 					for(k = 0; k < string.length; k++) {
 						if(string.substring(k, k+1) == " ") {
 							spaces ++;
-						}
-					}
-					string += string;
-					string.replace(/$/g, "*");
-					
-					if(spaces >= 2 || string.indexOf("* *") % 2 == 0) {
-						if(spaces == 2) {
-							if(string.indexOf(" * ") % 2 != 0) {
-								array[i][j] = "*";
-							}
 						} else {
-							array[i][j] = "*";
+							string.replaceAt(k, "*");
 						}
 					}
+					
+					if(spaces >= 2 || (string.indexOf("* *") % 2 == 1 && string.indexOf("* *") != -1)) {
+						array[i][j] = "*";
+					}
+					console.log("String " + i + "," + j + ":" + string);
 				}
 			}
 		}
@@ -292,4 +287,8 @@ function fillArray(array) {
 		}
 	}
 	return array;
+}
+
+String.prototype.replaceAt=function(index, character) {
+    return this.substr(0, index) + character + this.substr(index+character.length);
 }
