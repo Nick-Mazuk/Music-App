@@ -1,21 +1,26 @@
+var s = " ";
+var m = "$";
+var picture = [[m,m,m,s,s,s,s,s,s,s,s,s,m,m,m],[m,m,m,m,s,s,s,s,s,s,s,m,m,m,m],[m,m,m,m,m,s,s,s,s,s,m,m,m,m,m],[m,m,m,m,m,m,s,s,s,m,m,m,m,m,m],[m,m,m,s,m,m,m,m,m,m,m,s,m,m,m],[m,m,m,s,s,m,m,m,m,m,s,s,m,m,m],[m,m,m,s,s,s,m,m,m,s,s,s,m,m,m],[m,m,m,s,s,s,s,s,s,s,s,s,m,m,m]];
+
+
 function edge() {
-	var size = 2000;
-	var array = createArray(size);
+	var array = createArray(1);
 	//printArray(array);
 	console.log("Created Array");
+	array = picture;
 	var time1 = new Date();
 	var StartTime = time1.getTime();
 	var finished = false;
 	//array = fillArray(array);
 	var time2 = new Date();
 	var endTime = time2.getTime();
-	console.log(endTime - StartTime);
+	//console.log(endTime - StartTime);
 	//console.log("----------------------");
-	//printArray(array);
+	printArray(array);
 	//console.log("Filled Array");
-	//console.log("----------------------");
-	for(i = 0; i < size; i++) {
-		for(j = 0; j < size; j++) {
+	console.log("----------------------");
+	for(i = 0; i < array.length; i++) {
+		for(j = 0; j < array[i].length; j++) {
 			if(array[i][j] == "$") {
 				if(i == 0) {
 					if(j == 0) {
@@ -36,7 +41,7 @@ function edge() {
 						if(spaces = 2) {
 							array[i][j] = "*";
 						}
-					} else if(j == size - 1) {
+					} else if(j == array[i].length - 1) {
 						var string = "";
 						string += array[i+1][j]; //6
 						string += array[i+1][j-1]; //7
@@ -76,7 +81,7 @@ function edge() {
 						}
 					}
 
-				} else if(i == size - 1) {
+				} else if(i == array.length - 1) {
 					if(j == 0) {
 						var string = "";
 						string += array[i-1][j]; //2
@@ -95,7 +100,7 @@ function edge() {
 						if(spaces = 2) {
 							array[i][j] = "*";
 						}
-					} else if(j == size - 1) {
+					} else if(j == array[i].length - 1) {
 						var string = "";
 						string += array[i-1][j-1]; //1
 						string += array[i-1][j]; //2
@@ -154,7 +159,7 @@ function edge() {
 					if(spaces >= 1) {
 						array[i][j] = "*";
 					}
-				} else if(j == size - 1) {
+				} else if(j == array[i].length - 1) {
 					var string = "";
 					string += array[i-1][j-1]; //1
 					string += array[i-1][j]; //2
@@ -204,18 +209,18 @@ function edge() {
 	}
 	var time2 = new Date();
 	var endTime = time2.getTime();
-	console.log(endTime - StartTime);
-	//printArray(array);
+	//console.log(endTime - StartTime);
+	printArray(array);
 	//console.log("Edged Array");
-	for(i = 0; i < size; i++) {
-		for(j = 0; j < size; j++) {
+	for(i = 0; i < array.length; i++) {
+		for(j = 0; j < array[i].length; j++) {
 			if(array[i][j] == "$") {
 				array[i][j] = " ";
 			}
 		}
 	}
-	//console.log("----------------------");
-	//printArray(array);
+	console.log("----------------------");
+	printArray(array);
 	//console.log("Finished");
 	var time2 = new Date();
 	var endTime = time2.getTime();
@@ -240,7 +245,7 @@ function createArray(size) {
 function printArray(array) {
 	for(i = 0;i < array.length; i++) {
 		var string = "";
-		for(j=0;j < array.length; j++) {
+		for(j=0;j < array[i].length; j++) {
 			string += array[i][j];
 		}
 		console.log(string);
@@ -248,15 +253,14 @@ function printArray(array) {
 }
 
 function fillArray(array) {
-	var size = array.length;
 	var done = false;
 	var time1 = new Date();
 	var StartTime = time1.getTime();
 	var timesLooped = 0;
 	while(!done) {
 		done = true;
-		for(i = 0; i < size; i++) {
-			for(j = 0; j < size; j++) {
+		for(i = 0; i < array.length; i++) {
+			for(j = 0; j < array[i].length; j++) {
 				if(j == 0) {
 					if(i == 0) {
 						if(array[i][j+1] == "$" && array[i+1][j+1] == "$" && array[i+1][j] == "$" && array[i][j] == " ") {
@@ -266,7 +270,7 @@ function fillArray(array) {
 							array[i][j] == " ";
 							done = false;
 						}
-					} else if(i == size - 1) {
+					} else if(i == array.length - 1) {
 						if(array[i][j+1] == "$" && array[i-1][j+1] == "$" && array[i-1][j] == "$" && array[i][j] == " ") {
 							array[i][j] == "$";
 							done = false;
@@ -298,7 +302,7 @@ function fillArray(array) {
 							done = false;
 						}
 					}
-				} else if (j == size - 1) {
+				} else if (j == array[i].length - 1) {
 					if(i == 0) {
 						if(array[i][j-1] == "$" && array[i+1][j-1] == "$" && array[i+1][j] == "$" && array[i][j] == " ") {
 							array[i][j] == "$";
@@ -307,7 +311,7 @@ function fillArray(array) {
 							array[i][j] == " ";
 							done = false;
 						}
-					} else if(i == size - 1) {
+					} else if(i == array[i].length - 1) {
 						if(array[i][j-1] == "$" && array[i-1][j-1] == "$" && array[i-1][j] == "$" && array[i][j] == " ") {
 							array[i][j] == "$";
 							done = false;
@@ -363,7 +367,7 @@ function fillArray(array) {
 						done = false;
 					}
 
-				} else if(i == size - 1) {
+				} else if(i == array.length - 1) {
 					var string = "";
 					string += array[i-1][j-1]; //1
 					string += array[i-1][j]; //2
