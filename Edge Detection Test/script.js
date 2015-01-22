@@ -4,181 +4,27 @@ var picture = [[m,m,m,s,s,s,s,s,s,s,s,s,m,m,m],[m,m,m,m,s,s,s,s,s,s,s,m,m,m,m],[
 
 
 function edge() {
-	var array = createArray(1);
+	//var array = createArray(2);
 	//printArray(array);
-	console.log("Created Array");
 	array = picture;
 	var time1 = new Date();
 	var StartTime = time1.getTime();
 	var finished = false;
-	//array = fillArray(array);
 	var time2 = new Date();
 	var endTime = time2.getTime();
-	//console.log(endTime - StartTime);
-	//console.log("----------------------");
 	printArray(array);
-	//console.log("Filled Array");
 	console.log("----------------------");
 	for(i = 0; i < array.length; i++) {
 		for(j = 0; j < array[i].length; j++) {
 			if(array[i][j] == "$") {
 				if(i == 0) {
-					if(j == 0) {
-						var string = "";
-						string += array[i][j+1]; //4
-						string += array[i+1][j+1]; //5
-						string += array[i+1][j]; //6
-
-						var spaces = 0;
-						for(k = 0; k < string.length; k++) {
-							if(string.substring(k, k+1) == " ") {
-								spaces++;
-							} else {
-								string = stringReplaceAt(string,k, "*");
-							}
-						}
-						
-						if(spaces = 2) {
-							array[i][j] = "*";
-						}
-					} else if(j == array[i].length - 1) {
-						var string = "";
-						string += array[i+1][j]; //6
-						string += array[i+1][j-1]; //7
-						string += array[i][j-1]; //8
-
-						var spaces = 0;
-						for(k = 0; k < string.length; k++) {
-							if(string.substring(k, k+1) == " ") {
-								spaces++;
-							} else {
-								string = stringReplaceAt(string,k, "*");
-							}
-						}
-						
-						if(spaces = 2) {
-							array[i][j] = "*";
-						}
-					} else {
-						var string = "";
-						string += array[i][j+1]; //4
-						string += array[i+1][j+1]; //5
-						string += array[i+1][j]; //6
-						string += array[i+1][j-1]; //7
-						string += array[i][j-1]; //8
-
-						var spaces = 0;
-						for(k = 0; k < string.length; k++) {
-							if(string.substring(k, k+1) == " ") {
-								spaces++;
-							} else {
-								string = stringReplaceAt(string,k, "*");
-							}
-						}
-						
-						if(spaces >= 1) {
-							array[i][j] = "*";
-						}
-					}
-
+					array[i][j] = "*";
 				} else if(i == array.length - 1) {
-					if(j == 0) {
-						var string = "";
-						string += array[i-1][j]; //2
-						string += array[i-1][j+1]; //3
-						string += array[i][j+1]; //4
-
-						var spaces = 0;
-						for(k = 0; k < string.length; k++) {
-							if(string.substring(k, k+1) == " ") {
-								spaces++;
-							} else {
-								string = stringReplaceAt(string,k, "*");
-							}
-						}
-						
-						if(spaces = 2) {
-							array[i][j] = "*";
-						}
-					} else if(j == array[i].length - 1) {
-						var string = "";
-						string += array[i-1][j-1]; //1
-						string += array[i-1][j]; //2
-						string += array[i][j-1]; //8
-
-						var spaces = 0;
-						for(k = 0; k < string.length; k++) {
-							if(string.substring(k, k+1) == " ") {
-								spaces++;
-							} else {
-								string = stringReplaceAt(string,k, "*");
-							}
-						}
-						
-						if(spaces = 2) {
-							array[i][j] = "*";
-						}
-					} else {
-						var string = "";
-						string += array[i-1][j-1]; //1
-						string += array[i-1][j]; //2
-						string += array[i-1][j+1]; //3
-						string += array[i][j+1]; //4
-						string += array[i][j-1]; //8
-
-						var spaces = 0;
-						for(k = 0; k < string.length; k++) {
-							if(string.substring(k, k+1) == " ") {
-								spaces++;
-							} else {
-								string = stringReplaceAt(string,k, "*");
-							}
-						}
-						
-						if(spaces >= 1) {
-							array[i][j] = "*";
-						}
-					}
+					array[i][j] = "*";
 				} else if(j == 0) {
-					var string = "";
-					string += array[i-1][j]; //2
-					string += array[i-1][j+1]; //3
-					string += array[i][j+1]; //4
-					string += array[i+1][j+1]; //5
-					string += array[i+1][j]; //6
-
-					var spaces = 0;
-					for(k = 0; k < string.length; k++) {
-						if(string.substring(k, k+1) == " ") {
-							spaces++;
-						} else {
-							string = stringReplaceAt(string,k, "*");
-						}
-					}
-					
-					if(spaces >= 1) {
-						array[i][j] = "*";
-					}
+					array[i][j] = "*";
 				} else if(j == array[i].length - 1) {
-					var string = "";
-					string += array[i-1][j-1]; //1
-					string += array[i-1][j]; //2
-					string += array[i+1][j]; //6
-					string += array[i+1][j-1]; //7
-					string += array[i][j-1]; //8
-
-					var spaces = 0;
-					for(k = 0; k < string.length; k++) {
-						if(string.substring(k, k+1) == " ") {
-							spaces++;
-						} else {
-							string = stringReplaceAt(string,k, "*");
-						}
-					}
-					
-					if(spaces >= 1) {
-						array[i][j] = "*";
-					}
+					array[i][j] = "*";
 				} else {
 					var string = "";
 					string += array[i-1][j-1]; //1
@@ -201,7 +47,9 @@ function edge() {
 					string += string;
 					
 					if(spaces >= 2 || (string.indexOf("* *") % 2 == 0 && string.indexOf("* *") != -1)) {
-						array[i][j] = "*";
+						if(string.indexOf(" *** ") % 2 !=0) {
+							array[i][j] = "*";
+						}
 					}
 				}
 			}
@@ -209,9 +57,8 @@ function edge() {
 	}
 	var time2 = new Date();
 	var endTime = time2.getTime();
-	//console.log(endTime - StartTime);
+	console.log(endTime - StartTime);
 	printArray(array);
-	//console.log("Edged Array");
 	for(i = 0; i < array.length; i++) {
 		for(j = 0; j < array[i].length; j++) {
 			if(array[i][j] == "$") {
@@ -221,7 +68,6 @@ function edge() {
 	}
 	console.log("----------------------");
 	printArray(array);
-	//console.log("Finished");
 	var time2 = new Date();
 	var endTime = time2.getTime();
 	console.log(endTime - StartTime);
