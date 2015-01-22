@@ -4,14 +4,9 @@ var picture = [[m,m,m,s,s,s,s,s,s,s,s,s,m,m,m],[m,m,m,m,s,s,s,s,s,s,s,m,m,m,m],[
 
 
 function edge() {
-	//var array = createArray(2);
+	//var array = createArray(2); //creates a random array of whatever size is inside
 	//printArray(array);
 	array = picture;
-	var time1 = new Date();
-	var StartTime = time1.getTime();
-	var finished = false;
-	var time2 = new Date();
-	var endTime = time2.getTime();
 	printArray(array);
 	console.log("----------------------");
 	for(i = 0; i < array.length; i++) {
@@ -55,9 +50,6 @@ function edge() {
 			}
 		}
 	}
-	var time2 = new Date();
-	var endTime = time2.getTime();
-	console.log(endTime - StartTime);
 	printArray(array);
 	for(i = 0; i < array.length; i++) {
 		for(j = 0; j < array[i].length; j++) {
@@ -68,9 +60,6 @@ function edge() {
 	}
 	console.log("----------------------");
 	printArray(array);
-	var time2 = new Date();
-	var endTime = time2.getTime();
-	console.log(endTime - StartTime);
 }
 
 function createArray(size) {
@@ -272,7 +261,7 @@ function fillArray(array) {
 			}
 		}
 		timesLooped++;
-		if(timesLooped > 15) {
+		if(timesLooped > 10) {
 			done = true;
 		}
 	}
