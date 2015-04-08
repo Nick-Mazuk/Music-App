@@ -7,3 +7,4 @@ This is an Andriod app that is intended for high school band students and is int
 - Memory: 80 Mb
 - Camera Resolution: 4 Mega Pixels
 - RAM: 512 Mb
+- Open GL ES 2.0
