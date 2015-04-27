@@ -8,3 +8,6 @@ This is an Andriod app that is intended for high school band students and is int
 - Camera Resolution: 4 Mega Pixels
 - RAM: 512 Mb
 - Open GL ES 2.0
+
+##Mission Statement
+Band/Orchestra programs in schools lose valuable performance opportunities because students spend too much time figuring out how the music should sound.
