@@ -90,7 +90,7 @@ public class Note {
 	//validates and sets status attribute. If invalid, throws IllegalArgumentException
 	public void setStatus(String test) throws IllegalArgumentException { 
 		test = test.toUpperCase();
-		if(test.charAt(0) == 'F') {
+		if(test.charAt(0) == 'F' && test.length() == 2) {
 			if(test.charAt(1) == '8' || test.charAt(1) == '9' || (test.charAt(1) >= 'A' && (test.charAt(1) <= 'F')))
 				this.status = test;
 			else
