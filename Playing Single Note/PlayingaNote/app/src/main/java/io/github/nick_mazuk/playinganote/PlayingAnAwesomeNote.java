@@ -5,17 +5,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import java.io.IOException;
 
 
 public class PlayingAnAwesomeNote extends ActionBarActivity {
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing_an_awesome_note);
+        mp = MediaPlayer.create(this,R.raw.piano);
     }
 
 
@@ -41,22 +44,7 @@ public class PlayingAnAwesomeNote extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void playNote(android.view.View view) {
-        MediaPlayer mp = new MediaPlayer();
-        final Button testButton = (Button) findViewById(R.id.start);
-        testButton.setTag(1);
-        testButton.setText("Pause");
-        try {
-            mp.reset();
-            mp.setDataSource("Piano116.mp3");
-            mp.prepare();
-            mp.start();
-        } catch (IllegalArgumentException e) {
-
-        } catch (IllegalStateException e) {
-
-        } catch (IOException e) {
-
-        }
+    public void playNote(View view) {
+        mp.start();
     }
 }
