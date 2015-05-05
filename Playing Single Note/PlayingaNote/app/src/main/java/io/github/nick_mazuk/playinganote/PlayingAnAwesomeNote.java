@@ -1,17 +1,24 @@
 package io.github.nick_mazuk.playinganote;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import java.io.IOException;
 
 
 public class PlayingAnAwesomeNote extends ActionBarActivity {
+    MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playing_an_awesome_note);
+        mp = MediaPlayer.create(this,R.raw.piano);
     }
 
 
@@ -35,5 +42,9 @@ public class PlayingAnAwesomeNote extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void playNote(View view) {
+        mp.start();
     }
 }

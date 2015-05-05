@@ -12,6 +12,7 @@
         android:text="Start!"
         android:layout_marginTop="123dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="playNote"/>
 
 </RelativeLayout>
